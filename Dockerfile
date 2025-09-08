@@ -18,3 +18,4 @@ EXPOSE 3000
 
 # Uygulamayı başlatıyoruz
 CMD ["npm", "start"]
+
