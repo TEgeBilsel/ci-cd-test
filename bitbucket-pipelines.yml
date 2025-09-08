@@ -1,0 +1,23 @@
+image: docker:20.10.16
+
+options:
+  docker: true
+
+pipelines:
+  default:
+    - step:
+        name: Build and Run with Docker Compose
+        services:
+          - docker
+        script:
+          # Docker Compose kur
+          - apk add --no-cache docker-compose
+
+          # Servisleri başlat (arka planda)
+          - docker-compose up -d --build
+
+          # Container'ların durumunu kontrol et
+          - docker-compose ps
+
+          # Uygulama loglarını göster
+          - docker-compose logs app
